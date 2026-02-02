@@ -1,26 +1,83 @@
 @import "tailwindcss";
 
+/* 1. Definição das Variáveis de Marca (Paleta Rosé/Gold) */
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #4a3728; /* Marrom escuro para melhor leitura */
+  
+  /* Cores da Clínica */
+  --brand-nude: #f4dcd3;
+  --brand-rose: #eac0b2;
+  --brand-gold: #c5a368;
+  --brand-dark: #4a3728;
+  
+  /* Fontes (Podem ser configuradas via Google Fonts no layout.tsx) */
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Montserrat", sans-serif;
 }
 
+/* 2. Integração com o Tema do Tailwind v4 */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  
+  --color-brand-nude: var(--brand-nude);
+  --color-brand-rose: var(--brand-rose);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-dark: var(--brand-dark);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+  
+  /* Animação personalizada para as borboletas */
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
   }
 }
 
+/* 3. Estilos de Base */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 4. Tipografia Utilitária */
+h1, h2, h3, .font-serif {
+  font-family: var(--font-serif);
+}
+
+/* 5. Componentes e Ajustes de Design */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Efeito de Vidro para o Navbar */
+  .glass-nav {
+    @apply bg-white/80 backdrop-blur-md border-b border-brand-rose/30;
+  }
+
+  /* Botão Estilo Luxo */
+  .btn-gold {
+    @apply bg-brand-gold text-white px-8 py-3 rounded-full 
+           hover:bg-brand-dark transition-all duration-500 
+           uppercase tracking-[0.2em] text-[10px] font-bold shadow-lg;
+  }
+}
+
+/* Ocultar scrollbar mantendo funcionalidade (opcional para estética clean) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--brand-nude);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--brand-gold);
+  border-radius: 10px;
 }
