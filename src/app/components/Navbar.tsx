@@ -2,17 +2,20 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  // Lista atualizada com base em todos os serviços
   const procedimentosList = [
     { name: "Botox", slug: "botox" },
     { name: "Bioestimuladores", slug: "bioestimuladores" },
     { name: "Preenchimento", slug: "preenchimento" },
     { name: "Lipo Enzimática", slug: "lipo-enzimatica" },
     { name: "Skinbooster", slug: "skinbooster" },
+    { name: "Peelings", slug: "peeling-quimico" },
   ];
 
   return (
@@ -20,31 +23,28 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
         
         {/* Logo */}
-        <div className="relative w-40 h-12">
+        <Link href="/" className="relative w-40 h-12">
           <Image 
             src="/logo-daniela.png" 
             alt="Logo Dra Daniela Furtado" 
             fill 
             className="object-contain"
           />
-        </div>
+        </Link>
 
         {/* Desktop links */}
         <div className="hidden md:flex gap-10 items-center">
-          <a href="/" className="text-[10px] uppercase tracking-[0.2em] font-sans hover:text-brand-gold transition-colors text-brand-dark">
+          <Link href="/#" className="text-[10px] uppercase tracking-[0.2em] font-sans hover:text-brand-gold transition-colors text-brand-dark font-bold">
             Início
-          </a>
-          <a href="#sobre" className="text-[10px] uppercase tracking-[0.2em] font-sans hover:text-brand-gold transition-colors text-brand-dark">
-            A Clínica
-          </a>
+          </Link>
 
           {/* Dropdown / Leque de Procedimentos */}
           <div 
-            className="relative" 
+            className="relative h-20 flex items-center" 
             onMouseEnter={() => setIsDropdownOpen(true)} 
             onMouseLeave={() => setIsDropdownOpen(false)}
           >
-            <button className="flex items-center gap-1 text-[10px] uppercase tracking-[0.2em] font-sans hover:text-brand-gold transition-colors text-brand-dark cursor-pointer">
+            <button className="flex items-center gap-1 text-[10px] uppercase tracking-[0.2em] font-sans hover:text-brand-gold transition-colors text-brand-dark cursor-pointer font-bold">
               Procedimentos <ChevronDown size={12} className={`transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
             
@@ -53,16 +53,23 @@ export default function Navbar() {
               <ul className="py-4">
                 {procedimentosList.map((item) => (
                   <li key={item.slug}>
-                    <a href={`/procedimentos/${item.slug}`} className="block px-6 py-3 text-[10px] uppercase tracking-wider text-brand-dark hover:bg-brand-nude hover:text-brand-gold transition-colors">
+                    <Link href={`/procedimentos/${item.slug}`} className="block px-6 py-3 text-[10px] uppercase tracking-wider text-brand-dark hover:bg-brand-nude hover:text-brand-gold transition-colors font-bold">
                       {item.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
 
-          <a href="#contato" className="text-[10px] uppercase tracking-[0.2em] font-sans hover:text-brand-gold transition-colors text-brand-dark">
+          <a href="/#localizacao" className="text-[10px] uppercase tracking-[0.2em] font-sans hover:text-brand-gold transition-colors text-brand-dark font-bold">
+            Localização
+          </a>
+          <a href="/#sobre" className="text-[10px] uppercase tracking-[0.2em] font-sans hover:text-brand-gold transition-colors text-brand-dark font-bold">
+            Sobre eu
+          </a>
+          
+          <a href="/#contato" className="text-[10px] uppercase tracking-[0.2em] font-sans hover:text-brand-gold transition-colors text-brand-dark font-bold">
             Contato
           </a>
         </div>
@@ -76,32 +83,36 @@ export default function Navbar() {
       {/* Menu Cascata Mobile */}
       <div 
         className={`absolute top-20 left-0 w-full bg-brand-nude transition-all duration-500 ease-in-out overflow-hidden shadow-xl ${
-          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+          isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
         }`}
       >
         <div className="flex flex-col items-center py-10 gap-6">
-          <a href="/" onClick={() => setIsOpen(false)} className="text-xl font-serif italic text-brand-dark">Início</a>
-          <a href="#sobre" onClick={() => setIsOpen(false)} className="text-xl font-serif italic text-brand-dark">A Clínica</a>
+          <Link href="/" onClick={() => setIsOpen(false)} className="text-xl font-serif italic text-brand-dark">Início</Link>
+          <a href="/#sobre" onClick={() => setIsOpen(false)} className="text-xl font-serif italic text-brand-dark">A Clínica</a>
           
-          {/* No mobile, listamos os procedimentos direto para facilitar o toque */}
           <div className="text-center bg-brand-rose/10 w-full py-4 space-y-4">
              <p className="text-[10px] uppercase tracking-widest text-brand-gold font-bold">Nossos Procedimentos</p>
              {procedimentosList.map((item) => (
-               <a 
+               <Link 
                 key={item.slug} 
                 href={`/procedimentos/${item.slug}`} 
                 className="block text-lg font-serif italic text-brand-dark"
                 onClick={() => setIsOpen(false)}
                >
                  {item.name}
-               </a>
+               </Link>
              ))}
           </div>
-
-          <a href="#contato" onClick={() => setIsOpen(false)} className="text-xl font-serif italic text-brand-dark">Contato</a>
           
+          {/* Link para arrastar até a localização no Map.tsx */}
+          <a href="/#localizacao" onClick={() => setIsOpen(false)} className="text-xl font-serif italic text-brand-dark">Localização</a> 
+          <a href="/#sobre" onClick={() => setIsOpen(false)} className="text-xl font-serif italic text-brand-dark">Sobre eu</a> 
+          <a href="/#contato" onClick={() => setIsOpen(false)} className="text-xl font-serif italic text-brand-dark">Contato</a>
+
           <div className="mt-4 animate-bounce">
-             <span className="text-2xl">🦋</span>
+             <div className="relative w-8 h-8">
+                <Image src="/borboleta.png" alt="Icon" fill className="object-contain" />
+             </div>
           </div>
         </div>
       </div>
