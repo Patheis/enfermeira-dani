@@ -94,9 +94,9 @@ export default function BotoxPage() {
             </div>
 
             {/* Borboleta decorativa atrás da moldura - Usando imagem oficial */}
-            <div className="absolute -bottom-6 -right-6 z-0 opacity-10 hidden md:block">
+            <div className="absolute -bottom-6 -right-6 z-0 opacity-50 hidden md:block">
                <div className="relative w-32 h-32 rotate-[15deg]">
-                  <Image src="/enfermeira-dani/borboleta.png" alt="Fundo" fill className="object-contain" />
+                  <Image src="/enfermeira-dani/borboleta-semfundo.png" alt="Fundo" fill className="object-contain" />
                </div>
             </div>
           </div>
@@ -118,7 +118,7 @@ export default function BotoxPage() {
             </div>
 
             <button className="btn-gold w-full py-4 text-[10px] font-bold tracking-[0.3em] uppercase shadow-xl hover:scale-[1.01] active:scale-[0.98] transition-all">
-              <a href="/#agendamento">Agendar minha Avaliação 🦋</a>
+              <a href="/enfermeira-dani/#agendamento">Agendar minha Avaliação 🦋</a>
             </button>
           </div>
         </div>
