@@ -46,7 +46,7 @@ export default function Map() {
             <div className="bg-white p-6 rounded-[2.5rem] border border-brand-rose/10 shadow-xl max-w-sm flex items-center gap-5 group hover:border-brand-gold/30 transition-all">
               <div className="w-16 h-16 relative shrink-0">
                 <Image 
-                  src="/coren-logo.png" 
+                  src="/enfermeira-dani/coren-logo.png" 
                   alt="Logo Coren" 
                   fill 
                   className="object-contain"
@@ -82,7 +82,7 @@ export default function Map() {
             
             {/* Borboleta flutuando atrás do mapa */}
             <div className="absolute -bottom-8 -left-8 w-24 h-24 opacity-10 -z-10 rotate-[-15deg]">
-              <Image src="/borboleta.png" alt="decor" fill className="object-contain" />
+              <Image src="/enfermeira-dani/borboleta.png" alt="decor" fill className="object-contain" />
             </div>
           </div>
 

@@ -11,7 +11,7 @@ export default function About() {
       {/* Borboleta Superior Esquerda - Aumentada opacidade e removido blur */}
       <div className="absolute top-[5%] left-[-2%] opacity-40 animate-float z-0">
         <Image 
-          src="/borboleta-semfundo.png" 
+          src="/enfermeira-dani/borboleta-semfundo.png" 
           alt="Decor" 
           width={250} // Aumentada um pouco
           height={250} 
@@ -22,7 +22,7 @@ export default function About() {
       {/* Borboleta Inferior Direita - Mais nítida e vibrante */}
       <div className="absolute bottom-[10%] right-[2%] opacity-30 animate-float z-0" style={{ animationDelay: '2.5s' }}>
         <Image 
-          src="/borboleta-semfundo.png" 
+          src="/enfermeira-dani/borboleta-semfundo.png" 
           alt="Decor" 
           width={220} 
           height={220} 
@@ -39,7 +39,7 @@ export default function About() {
               
               <div className="relative z-10 aspect-[5/6] rounded-[3rem] border-[6px] md:border-[8px] border-brand-rose/20 p-2 shadow-xl bg-white/10 overflow-hidden">
                 <Image
-                  src="/dani-about.jpg"
+                  src="/enfermeira-dani/dani-about.jpg"
                   alt="Dra. Daniela Furtado em sua Clínica"
                   fill
                   className="object-cover rounded-[2.5rem] transition-transform duration-700 hover:scale-105"
@@ -50,7 +50,7 @@ export default function About() {
 
               {/* Borboleta que "pousa" na foto - Opacidade total para destaque */}
               <div className="absolute -bottom-10 -right-10 w-24 h-24 md:w-36 md:h-36 opacity-100 animate-float-slow z-20 rotate-[20deg] drop-shadow-xl">
-                <Image src="/borboleta-semfundo.png" alt="Borboleta Decorativa" fill className="object-contain" />
+                <Image src="/enfermeira-dani/borboleta-semfundo.png" alt="Borboleta Decorativa" fill className="object-contain" />
               </div>
 
               {/* Selo de Experiência SUS */}
@@ -85,7 +85,7 @@ export default function About() {
 
             <div className="flex justify-center lg:justify-start">
                <div className="w-10 h-10 opacity-60 rotate-12 animate-pulse">
-                  <Image src="/borboleta-semfundo.png" alt="icon" width={40} height={40} />
+                  <Image src="/enfermeira-dani/borboleta-semfundo.png" alt="icon" width={40} height={40} />
                </div>
             </div>
           </div>

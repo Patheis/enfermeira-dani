@@ -7,7 +7,7 @@ export default function Hero() {
             {/* Borboleta Principal - Ajuste de Z-INDEX para z-[40] */}
             <div className="absolute top-[10%] right-[-5%] md:top-[20%] md:right-[2%] opacity-100 animate-float z-[40]">
                 <Image
-                    src="/borboleta-semfundo.png"
+                    src="/enfermeira-dani/borboleta-semfundo.png"
                     alt="Borboleta Decorativa"
                     width={150}
                     height={150}
@@ -18,7 +18,7 @@ export default function Hero() {
             {/* SEGUNDA BORBOLETA - Esquerda Superior */}
             <div className="absolute bottom-1  -top-10 left-[-%] md:top-10 md:-left-9 z-[40] animate-float opacity-100" style={{ animationDelay: '1s' }}>
                 <Image
-                    src="/borboleta-semfundo.png"
+                    src="/enfermeira-dani/borboleta-semfundo.png"
                     alt="Borboleta Decorativa Menor"
                     width={90}
                     height={90}
@@ -37,7 +37,7 @@ export default function Hero() {
                         <div className="relative z-10 aspect-[4/5] rounded-t-full border-[6px] md:border-[8px] border-brand-rose/30 p-2 shadow-inner bg-white/10">
                             <div className="relative w-full h-full rounded-t-full overflow-hidden">
                                 <Image
-                                    src="/dani-hero.jpg"
+                                    src="/enfermeira-dani/dani-hero.jpg"
                                     alt="Dra Daniela Furtado"
                                     fill
                                     className="object-cover transition-transform duration-700 hover:scale-105"
@@ -56,7 +56,7 @@ export default function Hero() {
                         {/* Terceira Borboleta (Invertida abaixo da moldura) */}
                         <div className="absolute -bottom-10 -left-10 md:-bottom-12 md:-left-20 z-[40] animate-float opacity-70" style={{ animationDelay: '2s' }}>
                             <Image
-                                src="/borboleta-semfundo.png"
+                                src="/enfermeira-dani/borboleta-semfundo.png"
                                 alt="Borboleta Decorativa Inferior"
                                 width={120}
                                 height={120}

@@ -6,9 +6,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function BotoxPage() {
   const images = [
-    "/resultados/botox.jpg",
-    "/resultados/botox-2.jpg",
-    "/resultados/botox-3.jpg",
+    "/enfermeira-dani/resultados/botox.jpg",
+    "/enfermeira-dani/resultados/botox-2.jpg",
+    "/enfermeira-dani/resultados/botox-3.jpg",
   ];
   
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -39,7 +39,7 @@ export default function BotoxPage() {
           <div className="flex justify-center mt-6">
             <div className="relative w-10 h-10 md:w-12 md:h-12 animate-float">
                <Image 
-                src="/borboleta-semfundo.png" 
+                src="/enfermeira-dani/borboleta-semfundo.png" 
                 alt="Borboleta Decorativa" 
                 fill 
                 className="object-contain grayscale-[0.2] opacity-100"
@@ -96,7 +96,7 @@ export default function BotoxPage() {
             {/* Borboleta decorativa atrás da moldura - Usando imagem oficial */}
             <div className="absolute -bottom-6 -right-6 z-0 opacity-10 hidden md:block">
                <div className="relative w-32 h-32 rotate-[15deg]">
-                  <Image src="/borboleta.png" alt="Fundo" fill className="object-contain" />
+                  <Image src="/enfermeira-dani/borboleta.png" alt="Fundo" fill className="object-contain" />
                </div>
             </div>
           </div>

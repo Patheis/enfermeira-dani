@@ -5,6 +5,7 @@ import Map from "./components/Map";
 import About from "./components/About";
 import AppointmentForm from "./components/AppointmentForm";
 import Footer from "./components/Footer";
+import CookieBanner from "./components/CookieBanner";
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
       <AppointmentForm />
       <About />
       <Footer /> 
-      
+      <CookieBanner />
     </main>
   );
 }

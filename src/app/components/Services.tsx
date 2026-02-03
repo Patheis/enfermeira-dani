@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const procedimentos = [
-  { title: "Botox", slug: "botox", desc: "Suavização de linhas de expressão para um olhar descansado.", icon: "/icones/botox.png" },
+  { title: "Botox", slug: "botox", desc: "Suavização de linhas de expressão para um olhar descansado.", icon: "/enfermeira-dani/icones/botox.png" },
   { title: "Bioestimulador de Colágeno", slug: "bioestimuladores", desc: "Recupere a firmeza e sustentação natural da sua pele.", icon: "/icones/colageno.png" },
   { title: "Preenchimento Labial & Facial", slug: "preenchimento", desc: "Harmonização e volume com naturalidade absoluta.", icon: "/icones/preenchimento.png" },
   { title: "Hidrolipoclasia", slug: "hidrolipoclasia", desc: "Tratamento focado na redução de gordura localizada.", icon: "/icones/corpo.png" },
@@ -80,7 +80,7 @@ function CardService({ item }: { item: any }) {
       <div className="flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest text-brand-gold mt-auto">
         <span>Explorar Metamorfose</span>
         <div className="relative w-19 h-19 group-hover:translate-x-1 transition-transform">
-          <Image src="/borboleta-semfundo.png" alt="seta" fill className="object-contain" />
+          <Image src="/enfermeira-dani/borboleta-semfundo.png" alt="seta" fill className="object-contain" />
         </div>
       </div>
     </Link>

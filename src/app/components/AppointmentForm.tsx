@@ -35,7 +35,7 @@ export default function AppointmentForm() {
       {/* Borboleta Superior Direita */}
       <div className="absolute top-[5%] right-[-5%] md:top-[10%] md:right-[2%] opacity-100 animate-float z-[40]">
         <Image
-          src="/borboleta-semfundo.png"
+          src="/enfermeira-dani/borboleta-semfundo.png"
           alt="Borboleta Decorativa"
           width={150}
           height={150}
@@ -46,7 +46,7 @@ export default function AppointmentForm() {
       {/* Borboleta Inferior Esquerda */}
       <div className="absolute bottom-[5%] left-[-5%] md:bottom-[10%] md:left-[2%] opacity-100 animate-float z-[40]" style={{ animationDelay: '1.5s' }}>
         <Image
-          src="/borboleta-semfundo.png"
+          src="/enfermeira-dani/borboleta-semfundo.png"
           alt="Borboleta Decorativa"
           width={120}
           height={120}
@@ -57,7 +57,7 @@ export default function AppointmentForm() {
       {/* Borboleta Superior Esquerda (Menor/Sutil) */}
       <div className="absolute top-[15%] left-[5%] opacity-40 animate-float z-[40]" style={{ animationDelay: '3s' }}>
         <Image
-          src="/borboleta-semfundo.png"
+          src="/enfermeira-dani/borboleta-semfundo.png"
           alt="Borboleta Decorativa"
           width={80}
           height={80}

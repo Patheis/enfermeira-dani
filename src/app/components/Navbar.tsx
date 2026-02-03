@@ -24,7 +24,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="relative w-36 h-10 md:w-40 md:h-12 shrink-0">
           <Image 
-            src="/logo-daniela.png" 
+            src="/enfermeira-dani/logo-daniela.png" 
             alt="Logo Dra Daniela Furtado" 
             fill 
             className="object-contain"

@@ -11,7 +11,7 @@ export default function Footer() {
                 {/* Coluna 1: IDENTIDADE */}
                 <div className="space-y-6">
                     <div className="bg-white p-3 rounded-2xl inline-block shadow-xl">
-                        <Image src="/logo-daniela.png" alt="Dra Daniela Logo" width={140} height={50} className="object-contain" />
+                        <Image src="/enfermeira-dani/logo-daniela.png" alt="Dra Daniela Logo" width={140} height={50} className="object-contain" />
                     </div>
                     <p className="text-white/60 text-[13px] font-light leading-relaxed tracking-wide font-sans">
                         Dra. Daniela Furtado <br />
