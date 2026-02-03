@@ -118,7 +118,7 @@ export default function BotoxPage() {
             </div>
 
             <button className="btn-gold w-full py-4 text-[10px] font-bold tracking-[0.3em] uppercase shadow-xl hover:scale-[1.01] active:scale-[0.98] transition-all">
-              Agendar minha Avaliação 🦋
+              <a href="/#agendamento">Agendar minha Avaliação 🦋</a>
             </button>
           </div>
         </div>

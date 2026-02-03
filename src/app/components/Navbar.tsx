@@ -5,10 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Lista atualizada com base em todos os serviços
   const procedimentosList = [
     { name: "Botox", slug: "botox" },
     { name: "Bioestimuladores", slug: "bioestimuladores" },
@@ -19,101 +18,79 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-brand-rose/30">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+    <nav className="fixed w-full z-[100] bg-white/95 backdrop-blur-sm border-b border-brand-rose/20 shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 flex justify-between items-center">
         
         {/* Logo */}
-        <Link href="/" className="relative w-40 h-12">
+        <Link href="/" className="relative w-36 h-10 md:w-40 md:h-12 shrink-0">
           <Image 
             src="/logo-daniela.png" 
             alt="Logo Dra Daniela Furtado" 
             fill 
             className="object-contain"
+            priority
           />
         </Link>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex gap-10 items-center">
-          <Link href="/#" className="text-[10px] uppercase tracking-[0.2em] font-sans hover:text-brand-gold transition-colors text-brand-dark font-bold">
-            Início
-          </Link>
-
-          {/* Dropdown / Leque de Procedimentos */}
-          <div 
-            className="relative h-20 flex items-center" 
-            onMouseEnter={() => setIsDropdownOpen(true)} 
-            onMouseLeave={() => setIsDropdownOpen(false)}
-          >
-            <button className="flex items-center gap-1 text-[10px] uppercase tracking-[0.2em] font-sans hover:text-brand-gold transition-colors text-brand-dark cursor-pointer font-bold">
-              Procedimentos <ChevronDown size={12} className={`transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center space-x-8">
+          <Link href="/" className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-dark hover:text-brand-gold transition-all">Início</Link>
+          
+          {/* Dropdown Desktop */}
+          <div className="relative group h-20 flex items-center" 
+               onMouseEnter={() => setIsDropdownOpen(true)} 
+               onMouseLeave={() => setIsDropdownOpen(false)}>
+            <button className="flex items-center gap-1 text-[10px] uppercase tracking-[0.2em] font-bold text-brand-dark group-hover:text-brand-gold transition-all">
+              Procedimentos
+              <ChevronDown size={12} className={`transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
-            
-            {/* O Leque que abre para baixo */}
-            <div className={`absolute top-full -left-4 w-64 bg-white shadow-2xl border-t-2 border-brand-gold transition-all duration-300 ${isDropdownOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
-              <ul className="py-4">
+            <div className={`absolute top-full left-0 pt-2 transition-all duration-300 ${isDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
+              <div className="bg-white border border-brand-rose/10 shadow-2xl rounded-2xl p-2 min-w-[220px] flex flex-col">
                 {procedimentosList.map((item) => (
-                  <li key={item.slug}>
-                    <Link href={`/procedimentos/${item.slug}`} className="block px-6 py-3 text-[10px] uppercase tracking-wider text-brand-dark hover:bg-brand-nude hover:text-brand-gold transition-colors font-bold">
-                      {item.name}
-                    </Link>
-                  </li>
+                  <Link key={item.slug} href={`/procedimentos/${item.slug}`} className="text-[10px] uppercase tracking-[0.15em] font-bold text-brand-dark/60 hover:text-brand-gold hover:bg-[#fcf8f6] px-5 py-3 rounded-xl transition-all">
+                    {item.name}
+                  </Link>
                 ))}
-              </ul>
+              </div>
             </div>
           </div>
 
-          <a href="/#localizacao" className="text-[10px] uppercase tracking-[0.2em] font-sans hover:text-brand-gold transition-colors text-brand-dark font-bold">
-            Localização
-          </a>
-          <a href="/#sobre" className="text-[10px] uppercase tracking-[0.2em] font-sans hover:text-brand-gold transition-colors text-brand-dark font-bold">
-            Sobre eu
-          </a>
-          
-          <a href="/#contato" className="text-[10px] uppercase tracking-[0.2em] font-sans hover:text-brand-gold transition-colors text-brand-dark font-bold">
-            Contato
-          </a>
+          <Link href="/#sobre" className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-dark hover:text-brand-gold transition-all">Sobre</Link>
+          <Link href="/#localizacao" className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-dark hover:text-brand-gold transition-all">Localização</Link>
+          <Link href="/#agendamento" className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-dark hover:text-brand-gold transition-all font-sans bg-brand-gold text-white px-4 py-2 rounded-full">Agendar 🦋</Link>
         </div>
 
         {/* Botão Mobile */}
-        <button className="md:hidden text-brand-dark" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        <button className="md:hidden p-2 text-brand-dark relative z-[101]" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Menu Cascata Mobile */}
-      <div 
-        className={`absolute top-20 left-0 w-full bg-brand-nude transition-all duration-500 ease-in-out overflow-hidden shadow-xl ${
-          isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="flex flex-col items-center py-10 gap-6">
-          <Link href="/" onClick={() => setIsOpen(false)} className="text-xl font-serif italic text-brand-dark">Início</Link>
-          <a href="/#sobre" onClick={() => setIsOpen(false)} className="text-xl font-serif italic text-brand-dark">A Clínica</a>
-          
-          <div className="text-center bg-brand-rose/10 w-full py-4 space-y-4">
-             <p className="text-[10px] uppercase tracking-widest text-brand-gold font-bold">Nossos Procedimentos</p>
-             {procedimentosList.map((item) => (
-               <Link 
-                key={item.slug} 
-                href={`/procedimentos/${item.slug}`} 
-                className="block text-lg font-serif italic text-brand-dark"
-                onClick={() => setIsOpen(false)}
-               >
-                 {item.name}
-               </Link>
-             ))}
-          </div>
-          
-          {/* Link para arrastar até a localização no Map.tsx */}
-          <a href="/#localizacao" onClick={() => setIsOpen(false)} className="text-xl font-serif italic text-brand-dark">Localização</a> 
-          <a href="/#sobre" onClick={() => setIsOpen(false)} className="text-xl font-serif italic text-brand-dark">Sobre eu</a> 
-          <a href="/#contato" onClick={() => setIsOpen(false)} className="text-xl font-serif italic text-brand-dark">Contato</a>
+      {/* Painel Menu Mobile (Estilo 4U) */}
+      <div className={`fixed inset-0 bg-[#fcf8f6] z-[99] md:hidden transition-transform duration-500 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        
+        {/* Indicador de Scroll (Bounce) */}
+        <div className="absolute bottom-6 left-0 w-full flex justify-center pointer-events-none z-[102] animate-bounce">
+            <ChevronDown size={32} className="text-brand-gold opacity-50" />
+        </div>
 
-          <div className="mt-4 animate-bounce">
-             <div className="relative w-8 h-8">
-                <Image src="/borboleta.png" alt="Icon" fill className="object-contain" />
-             </div>
+        {/* Conteúdo Mobile com Scroll permitido */}
+        <div className="flex flex-col p-8 pt-24 gap-6 overflow-y-auto h-full bg-[#fcf8f6]">
+          <Link onClick={() => setIsMobileMenuOpen(false)} href="/" className="text-2xl font-serif italic text-brand-dark border-b border-brand-rose/10 pb-2">Início</Link>
+          <Link onClick={() => setIsMobileMenuOpen(false)} href="/#sobre" className="text-2xl font-serif italic text-brand-dark border-b border-brand-rose/10 pb-2">A Clínica</Link>
+
+          {/* Lista de Procedimentos Mobile */}
+          <div className="flex flex-col gap-4">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-brand-gold font-bold border-b border-brand-rose/10 pb-2">Nossos Procedimentos</p>
+            {procedimentosList.map((item) => (
+              <Link key={item.slug} onClick={() => setIsMobileMenuOpen(false)} href={`/procedimentos/${item.slug}`} className="text-lg font-serif italic text-brand-dark/70 pl-4 border-l-2 border-brand-gold/30 py-1">
+                {item.name}
+              </Link>
+            ))}
           </div>
+
+          <Link onClick={() => setIsMobileMenuOpen(false)} href="/#localizacao" className="text-2xl font-serif italic text-brand-dark border-b border-brand-rose/10 pb-2">Localização</Link>
+          <Link onClick={() => setIsMobileMenuOpen(false)} href="/#agendamento" className="text-2xl font-serif italic text-brand-dark border-b border-brand-rose/10 pb-2 mb-20">Agendamento 🦋</Link>
         </div>
       </div>
     </nav>

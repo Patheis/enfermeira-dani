@@ -44,7 +44,7 @@ export default function Services() {
 
         <div className="mt-8 text-center">
           <button className="btn-gold px-12 py-5 text-[10px] font-bold tracking-[0.3em] uppercase shadow-2xl hover:scale-105 transition-all">
-            Agendar minha Avaliação 🦋
+            <a href="/#agendamento">Agendar minha Avaliação 🦋</a>
           </button>
         </div>
       </div>
