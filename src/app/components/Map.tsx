@@ -70,7 +70,7 @@ export default function Map() {
             <div className="bg-white p-3 md:p-4 rounded-[3rem] shadow-2xl border border-brand-rose/5 overflow-hidden">
               <div className="aspect-square w-full rounded-[2.2rem] overflow-hidden grayscale contrast-125 hover:grayscale-0 transition-all duration-1000">
                 <iframe 
-                  src="https://www.google.com/maps/place/4U+For+You+-+Language+School/@-21.4649873,-47.0073173,19.56z/data=!4m6!3m5!1s0x94b7b9a75852175d:0xd1a807533b79b450!8m2!3d-21.4650202!4d-47.0074161!16s%2Fg%2F11qg45tt8q?hl=pt-PT&entry=ttu&g_ep=EgoyMDI2MDIwMS4wIKXMDSoASAFQAw%3D%3D" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3698.835745422471!2d-47.0076!3d-21.4674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b8f047e7d6b8c1%3A0x7d0e0e0e0e0e0e0e!2sR.%20Ant%C3%B4nio%20Cristovam%2C%20490%20-%20Centro%2C%20Mococa%20-%20SP%2C%2013730-110!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
